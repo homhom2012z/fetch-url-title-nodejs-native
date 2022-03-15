@@ -16,10 +16,10 @@ const title = (req, res) => {
   fetch(url)
     .then((response) => response.text())
     .then((body) => {
-      res.end(parseTitle(body, url));
+      res.send({ title: parseTitle(body, url) });
     })
     .catch((err) => {
-      res.end(url);
+      res.send({ title: url });
     });
 };
 
